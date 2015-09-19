@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using FedUp.Models;
+using Fedup.Models;
 
-namespace FedUp
+namespace Fedup
 {
     public class EmailService : IIdentityMessageService
     {

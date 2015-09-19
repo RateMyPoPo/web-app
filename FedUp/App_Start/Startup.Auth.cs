@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using FedUp.Models;
+using Fedup.Models;
 
-namespace FedUp
+namespace Fedup
 {
     public partial class Startup
     {

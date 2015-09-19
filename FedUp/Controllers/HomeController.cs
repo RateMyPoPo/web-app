@@ -4,17 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FedUp.Controllers
+namespace Fedup.Controllers
 {
-    [RequireHttps]
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Incidents()
         {
             ViewBag.Message = "Your application description page.";
 

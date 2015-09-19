@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace FedUp.Models
+namespace Fedup.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

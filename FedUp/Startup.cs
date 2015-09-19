@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(FedUp.Startup))]
-namespace FedUp
+[assembly: OwinStartupAttribute(typeof(Fedup.Startup))]
+namespace Fedup
 {
     public partial class Startup
     {
