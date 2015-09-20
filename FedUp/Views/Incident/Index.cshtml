@@ -7,25 +7,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     @{
+        int count=0;
         foreach (var item in @ViewBag.Incidents)
         {
+            count++;
             <div class="container-fluid">
+                <h3>Case #@count</h3>
                 <div class="row-fluid">
                     <div class="span2">
                         <p>Timestamp: @item.timestamp</p>
                         <p>Dropbox Link: <a src=@item.dropBoxURL>@item.dropBoxURL</a></p>
                         <p>Geolocation: @item.longitute @item.latitude</p>
+                        <p>Audio Recording:</p>
+                        <audio controls>
+                            <source src="~/sound/exampleRec1.mp3" type="audio/ogg">
+                        </audio><br />
                         @{
                             string source = "https://www.google.com/maps/embed/v1/place?q=" + @item.latitude + "%2C" + @item.longitute + "&key=AIzaSyBVCUer4s4RHKzPOUYTSGmRuUunqnV38IQ";
                         }
-
                         <iframe width="600" height="250" frameborder="0" style="border:0" src=@source allowfullscreen></iframe>
                     </div>
-                    <div class="span10">
-                        <p>other content</p>
-                    </div>
                 </div>
-            </div> <br />
+            </div> <br /> <br />
         }
 
     }

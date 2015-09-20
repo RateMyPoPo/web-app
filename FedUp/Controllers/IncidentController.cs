@@ -33,12 +33,12 @@ namespace Fedup.Controllers
             incident2.latitude = 38.6043618;
             incident2.longitute = -90.5857429;
             incident2.timestamp = new DateTime(2015, 9, 1, 7, 0, 0);
-            incident1.dropBoxURL = "about:home";
+            incident2.dropBoxURL = "about:home";
 
             incident3.latitude = 37.7892969;
             incident3.longitute = -122.3892897;
             incident3.timestamp = new DateTime(2015, 9, 5, 7, 0, 0);
-            incident1.dropBoxURL = "about:home";
+            incident3.dropBoxURL = "about:home";
 
             Incidents.Add(incident1);
             Incidents.Add(incident2);
