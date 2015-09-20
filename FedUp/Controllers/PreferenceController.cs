@@ -9,8 +9,13 @@ namespace Fedup.Controllers
     public class PreferenceController : Controller
     {
         // GET: Preference
+        [AllowAnonymous]
         public ActionResult Index()
         {
+            @ViewBag.Contact = "checked";
+            @ViewBag.Audio = "checked";
+            @ViewBag.Geotag = "checked";
+
             return View();
         }
     }
