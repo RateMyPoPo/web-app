@@ -64,4 +64,5 @@ c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\System.Net.Http.Extensions.xml
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\System.Net.Http.Primitives.xml
-c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\obj\Release\Fedup.csproj.App.config
+c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\DropboxRestAPI.dll
+c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\DropboxRestAPI.pdb

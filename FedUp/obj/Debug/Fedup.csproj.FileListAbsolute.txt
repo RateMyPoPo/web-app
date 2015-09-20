@@ -61,6 +61,8 @@ c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\Microsoft.Owin.Security.Google.xml
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\Microsoft.Owin.Security.Twitter.xml
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\obj\Debug\Fedup.csproj.App.config
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\obj\Debug\Fedup.dll
 c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\obj\Debug\Fedup.pdb
+c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\DropboxRestAPI.dll
+c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\bin\DropboxRestAPI.pdb
+c:\users\francesco polizzi\documents\visual studio 2013\Projects\Fedup\Fedup\obj\Debug\Fedup.csprojResolveAssemblyReference.cache
