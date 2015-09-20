@@ -20,7 +20,8 @@ namespace Fedup.Controllers
         public struct incident {
             public double longitude;
             public double latitude;
-            public int timestamp;
+            public double timestamp;
+            public DateTime newTimeStamp;
             public string file_name;
         }
 
@@ -52,33 +53,6 @@ namespace Fedup.Controllers
                 //get authcode from querstring param
             var authCode = Request.QueryString["code"];
 
-            //    // Exchange the Authorization Code with Access/Refresh tokens
-            //var token = await dropboxClient.Core.OAuth2.TokenAsync(authCode);
-
-            //// Get root folder without content
-            ////var appFolder = await dropboxClient.Core.Metadata.MetadataAsync("/Apps/FedUpApp", list: true);
-            ////Console.WriteLine("Root Folder: {0} (Id: {1})", appFolder.Name, appFolder.path);
-
-            //// Initialize a new Client (with an AccessToken)
-            //var client2 = new Client(options);
-
-            ////    // Get root folder with content
-            //var rootFolder = await client2.Core.Metadata.MetadataAsync("/", list: false);
-            //foreach (var folder in rootFolder.contents)
-            //{
-            //    Console.WriteLine(" -> {0}: {1} (Id: {2})", folder.is_dir ? "Folder" : "File", folder.Name, folder.path);
-            //}
-
-            //    // Find a file in the root folder
-            //var file = rootFolder.contents.FirstOrDefault(x => x.is_dir == false);
-
-            //// Download a file
-            //var tempFile = Path.GetTempFileName();
-            //using (var fileStream = System.IO.File.OpenWrite(tempFile))
-            //{
-            //    await client2.Core.Metadata.FilesAsync(file.path, fileStream);
-            //}
-
             // Exchange the Authorization Code with Access/Refresh tokens
             var token = await dropboxClient.Core.OAuth2.TokenAsync(authCode);
 
@@ -105,15 +79,31 @@ namespace Fedup.Controllers
 
             // Find a file in the root folder
             var file = rootFolder.contents.FirstOrDefault(x => x.is_dir == false);
+            var files = rootFolder.contents.ToList();
 
             // Download a file
-            var tempFile = Path.GetTempFileName();
-            using (var fileStream = System.IO.File.OpenWrite(tempFile))
+            
+            foreach (var item in files)
             {
-                await client2.Core.Metadata.FilesAsync(file.path, fileStream);
+                var tempFile = Path.GetTempFileName();
+                if (item.path.Substring(item.path.Length - 4) == ".mp3")
+                {
+                    using (var fileStream = System.IO.File.OpenWrite(tempFile))
+                    {
+
+                        await client2.Core.Metadata.FilesAsync(item.path, fileStream);
+
+                        fileStream.Flush();
+                        fileStream.Close();
+                    }
+
+                    int length = item.path.Length;
+                    string destination = item.path.Substring(0, length - 4) + ".mp3";
+                    destination = AppDomain.CurrentDomain.BaseDirectory + destination.Substring(1);
+                    System.IO.File.Copy(tempFile, destination, true);
+                }
             }
 
-            @ViewBag.filepath = file.path;
 
             List<incident> Incidents = new List<incident>();
 
@@ -137,6 +127,12 @@ namespace Fedup.Controllers
 
                     //parse our json object
                     incident jsonObject = JsonConvert.DeserializeObject<incident>(response.Body);
+
+                    System.DateTime dtDateTime = new DateTime(1970,1,1,0,0,0,0,System.DateTimeKind.Utc);
+                    dtDateTime = dtDateTime.AddSeconds(jsonObject.timestamp).ToLocalTime();
+
+                    jsonObject.newTimeStamp = dtDateTime;
+
                     Incidents.Add(jsonObject);
                 }
                 catch

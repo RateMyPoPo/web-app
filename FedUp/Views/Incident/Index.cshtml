@@ -15,12 +15,13 @@
                 <h3>Case #@count</h3>
                 <div class="row-fluid">
                     <div class="span2">
-                        <p>Timestamp: @item.timestamp</p>
+                        <p>Timestamp: @item.newTimeStamp</p>
                         <p>Dropbox Link: <a src=@item.file_name>@item.file_name</a></p>
                         <p>Geolocation: @item.longitude @item.latitude</p>
-                        <p>Audio Recording:</p> @ViewBag.filepath
+                        <p>Audio Recording:</p>
+                        <p><a href="@item.file_name" download>Download Audio</a></p>
                         <audio controls>
-                            <source src=@ViewBag.filepath type="audio/ogg">
+                            <source src="@item.file_name" type="audio/mp3">
                         </audio><br />
                         @{
                             string source = "https://www.google.com/maps/embed/v1/place?q=" + @item.latitude + "%2C" + @item.longitude + "&key=AIzaSyBVCUer4s4RHKzPOUYTSGmRuUunqnV38IQ";
